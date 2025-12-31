@@ -432,29 +432,60 @@
     <!-- เพลง -->
     <!-- เพลง YouTube (ซ่อนไว้) -->
 <iframe
-  id="ytMusic"
-  width="0"
-  height="0"
-  src="https://www.youtube.com/embed/PXGycbkbtW0?enablejsapi=1&loop=1&playlist=PXGycbkbtW0"
-  frameborder="0"
-  allow="autoplay">
-</iframe>
+        id="ytMusic"
+        width="0"
+        height="0"
+        src="https://www.youtube.com/embed/PXGycbkbtW0?enablejsapi=1&loop=1&playlist=PXGycbkbtW0"
+        frameborder="0"
+        allow="autoplay">
+    </iframe>
+
     <script src="https://www.youtube.com/iframe_api"></script>
-    
 
     <script>
-        // ========== ตัวแปรหลัก ==========
         const wishBtn = document.getElementById('wishBtn');
         const hiddenMsg = document.getElementById('hiddenMsg');
         const giftBox = document.getElementById('giftBox');
         const surprise = document.getElementById('surprise');
         const musicBtn = document.getElementById('musicBtn');
-        const bgMusic = document.getElementById('bgMusic');
         const sky = document.getElementById('sky');
-        
-        let musicPlaying = false;
+
         let wishBtnClicked = false;
 
+        /* ===== ระบบเพลง (แก้ตรงนี้อย่างเดียว) ===== */
+        let player;
+        let musicPlaying = false;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('ytMusic');
+        }
+
+        function playMusic() {
+            if (!player) return;
+            player.playVideo();
+            musicPlaying = true;
+            musicBtn.querySelector('.music-icon').textContent = '🔊';
+        }
+
+        function pauseMusic() {
+            if (!player) return;
+            player.pauseVideo();
+            musicPlaying = false;
+            musicBtn.querySelector('.music-icon').textContent = '🔇';
+        }
+
+        function toggleMusic() {
+            musicPlaying ? pauseMusic() : playMusic();
+        }
+
+        musicBtn.addEventListener('click', toggleMusic);
+
+        wishBtn.addEventListener('click', () => {
+            if (wishBtnClicked) return;
+            wishBtnClicked = true;
+            hiddenMsg.classList.add('show');
+            playMusic();
+        
         // ========== สร้างดาว ==========
         function createStars() {
             for (let i = 0; i < 100; i++) {
