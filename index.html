@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -399,16 +400,17 @@
         <h1 class="main-title">Happy New Year 2026 🎆</h1>
         
         <div class="main-message">
-            <p>To Ket</p>
+            <p> To ket </p>
         </div>
 
-        <button class="btn-main" id="wishBtn"> Click for blessing 💌</button>
+        <button class="btn-main" id="wishBtn">Click for blessing 💌</button>
 
         <div class="hidden-message" id="hiddenMsg">
-            <p>✨ May every morning you wake up be filled with brightness and positivity</p>
+                  <p>✨ May every morning you wake up be filled with brightness and positivity</p>
             <p>💖 May this New Year be full of smiles, happiness, and endless love</p>
             <p>🌟 May all your dreams come true in 2026</p>
             <p>🎉 I wish you happiness and good days every day, forever</p>
+
         </div>
 
         <!-- กล่องของขวัญ -->
@@ -419,7 +421,7 @@
 
         <div class="surprise" id="surprise">
             <h2 style="font-family: 'Dancing Script', cursive; font-size: 2em; color: #ffd700; margin-bottom: 15px;">🎁 Surprise! 🎁</h2>
-            <p style="font-size: 1.2em;"> k! 💝</p>
+            <p style="font-size: 1.2em;">k! 💝</p>
             <p style="font-size: 1.1em;">Thank you for being you! 🌈✨</p>
         </div>
     </div>
@@ -431,7 +433,7 @@
 
     <!-- เพลง -->
     <audio id="bgMusic" loop>
-        <source src="its-you.mp3"audio/mpeg">
+        <source src="https://cdnjs.cloudflare.com/ajax/libs/audio-samples/0.1.0/sample.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -539,7 +541,7 @@
                 hiddenMsg.classList.add('show');
                 
                 // เปลี่ยนข้อความปุ่ม
-                this.textContent = Thanks for click 💝';
+                this.textContent = 'Thanks for Click 💝';
                 this.style.background = 'linear-gradient(135deg, #ffd700 0%, #ff6b9d 100%)';
                 
                 // พลุเยอะขึ้น
@@ -635,7 +637,7 @@
                 25% { transform: translateY(-20px) scale(1.1); }
                 50% { transform: translateY(0) scale(1.05); }
                 75% { transform: translateY(-10px) scale(1.05); }
-   }
+            }
         `;
         document.head.appendChild(style);
 
