@@ -399,16 +399,16 @@
         <h1 class="main-title">Happy New Year 2026 🎆</h1>
         
         <div class="main-message">
-            <p>To Ket </p>
+            <p>This New Year, I hope you smile a lot and have lots of good things come into your life—like me 😄 Haha. Wishing you lots of happiness</p>
         </div>
 
         <button class="btn-main" id="wishBtn">คลิกเพื่อรับคำอวยพร 💌</button>
 
         <div class="hidden-message" id="hiddenMsg">
-            <p>✨ May every morning you wake up be filled with brightness and positivity</p>
-            <p>💖 May this New Year be full of smiles, happiness, and endless love</p>
-            <p>🌟 May all your dreams come true in 2026</p>
-            <p>🎉 I wish you happiness and good days every day, forever</p>
+            <p>✨ คุณคือคนพิเศษที่ทำให้ทุกวันของฉันสดใส</p>
+            <p>💖 ขอให้ปีใหม่นี้เต็มไปด้วยรอยยิ้ม ความสุข และความรักที่ไม่มีที่สิ้นสุด</p>
+            <p>🌟 ขอให้ทุกความฝันของคุณเป็นจริงในปี 2026 นี้</p>
+            <p>🎉 และขอให้เรามีช่วงเวลาดีดีด้วยกันตลอดไปนะ</p>
         </div>
 
         <!-- กล่องของขวัญ -->
@@ -419,7 +419,7 @@
 
         <div class="surprise" id="surprise">
             <h2 style="font-family: 'Dancing Script', cursive; font-size: 2em; color: #ffd700; margin-bottom: 15px;">🎁 Surprise! 🎁</h2>
-            <p style="font-size: 1.2em;">! 💝</p>
+            <p style="font-size: 1.2em;">คุณคือของขวัญที่ดีที่สุดในชีวิตฉัน! 💝</p>
             <p style="font-size: 1.1em;">Thank you for being you! 🌈✨</p>
         </div>
     </div>
@@ -430,62 +430,23 @@
     </div>
 
     <!-- เพลง -->
-    <!-- เพลง YouTube (ซ่อนไว้) -->
-<iframe
-        id="ytMusic"
-        width="0"
-        height="0"
-        src="https://www.youtube.com/embed/PXGycbkbtW0?enablejsapi=1&loop=1&playlist=PXGycbkbtW0"
-        frameborder="0"
-        allow="autoplay">
-    </iframe>
-
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <audio id="bgMusic" loop>
+        <source src="https://drive.google.com/file/d/1kAhP7_8_eqdY_H4KPwU5OWfdWyvw1_hR/view?usp=drivesdk"audio/mpeg">
+    </audio>
 
     <script>
+        // ========== ตัวแปรหลัก ==========
         const wishBtn = document.getElementById('wishBtn');
         const hiddenMsg = document.getElementById('hiddenMsg');
         const giftBox = document.getElementById('giftBox');
         const surprise = document.getElementById('surprise');
         const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
         const sky = document.getElementById('sky');
-
+        
+        let musicPlaying = false;
         let wishBtnClicked = false;
 
-        /* ===== ระบบเพลง (แก้ตรงนี้อย่างเดียว) ===== */
-        let player;
-        let musicPlaying = false;
-
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('ytMusic');
-        }
-
-        function playMusic() {
-            if (!player) return;
-            player.playVideo();
-            musicPlaying = true;
-            musicBtn.querySelector('.music-icon').textContent = '🔊';
-        }
-
-        function pauseMusic() {
-            if (!player) return;
-            player.pauseVideo();
-            musicPlaying = false;
-            musicBtn.querySelector('.music-icon').textContent = '🔇';
-        }
-
-        function toggleMusic() {
-            musicPlaying ? pauseMusic() : playMusic();
-        }
-
-        musicBtn.addEventListener('click', toggleMusic);
-
-        wishBtn.addEventListener('click', () => {
-            if (wishBtnClicked) return;
-            wishBtnClicked = true;
-            hiddenMsg.classList.add('show');
-            playMusic();
-        
         // ========== สร้างดาว ==========
         function createStars() {
             for (let i = 0; i < 100; i++) {
@@ -674,7 +635,7 @@
                 25% { transform: translateY(-20px) scale(1.1); }
                 50% { transform: translateY(0) scale(1.05); }
                 75% { transform: translateY(-10px) scale(1.05); }
-            }
+   }
         `;
         document.head.appendChild(style);
 
